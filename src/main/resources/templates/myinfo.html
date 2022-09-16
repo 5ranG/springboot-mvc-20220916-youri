@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<!--위의 xmlns은 무조건 들어가야 한다-->
+<head>
+    <meta charset="UTF-8">
+    <title>MyInfo</title>
+</head>
+<style>
+    table{
+        border-collapse : collapse;
+        border: 1px solid #141414;
+    }
+    th, td{
+        border: 1px solid #141414;
+        margin: 0px;
+        padding: 10px;
+    }
+</style>
+<body>
+    <table>
+        <tr>
+            <th>이름</th>
+            <td th:text = "${name}"></td>
+        </tr>
+        <tr>
+            <th>나이</th>
+            <td th:text = "${age}"></td>
+        </tr>
+        <tr>
+            <th>휴대폰</th>
+            <td th:text = "${phone}"></td>
+        </tr>
+        <tr>
+            <th>주소</th>
+            <td th:text = "${address}"></td>
+        </tr>
+    </table>
+</body>
+</html>

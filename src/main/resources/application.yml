@@ -1,0 +1,8 @@
+server:
+  port: 8000
+
+spring:
+  thymeleaf:
+    prefix: "classpath:templates/" 
+#    classpath를 치면 resource를 찾아감. 거기서 templates 폴더를 찾아감
+    suffix: .html
