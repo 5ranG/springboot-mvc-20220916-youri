@@ -32,22 +32,24 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public int save(User user) {
-        try{
+        try {
             int maxCode = 0;
             for(User u : userData){
-                if(u.getUser_code() > maxCode){
+                if(u.getUser_code() > maxCode) {
                     maxCode = u.getUser_code();
                 }
             }
             maxCode++;
+
             user.setUser_code(maxCode);
 
             userData.add(user);
-        }catch(Exception e){
+        }catch (Exception e) {
             return 0;
         }
         return 1;
     }
+
 
     @Override
     public User findUserByUserId(String userId) {

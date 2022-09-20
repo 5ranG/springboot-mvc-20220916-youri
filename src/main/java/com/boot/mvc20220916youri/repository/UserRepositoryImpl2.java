@@ -1,11 +1,11 @@
 package com.boot.mvc20220916youri.repository;
 
 import com.boot.mvc20220916youri.domain.User;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 @Repository("b")
 public class UserRepositoryImpl2 implements UserRepository {
@@ -41,7 +41,7 @@ public class UserRepositoryImpl2 implements UserRepository {
         User user = null;
 
         for(User userObj: userData) {
-            if (userObj.getUser_id().equals(userId)) {
+            if (userObj.getUser_id().equals("userId")) {
                 user = userObj;
             }
         }
