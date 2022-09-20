@@ -8,12 +8,11 @@ import java.time.LocalDateTime;
 
 @Controller //콘트롤러는 이걸 꼭 달아줘야함
 public class PageController {
-    
     @GetMapping({"/", "/index"}) //둘 중 하나로 선택하면 아래꺼가 실행된다
     public String loadIndex(Model model){
         model.addAttribute("name","김준일");
 
-        return "index";
+        return "index"; //파일명
     }
 
     @GetMapping("/helloboot")
