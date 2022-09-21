@@ -2,6 +2,11 @@ server:
   port: 8000
 
 spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB # 파일의 최대 사이즈
+      max-request-size: 10MB # request 요청 최대 사이즈
+
   thymeleaf:
     prefix: "classpath:templates/" 
 #    classpath를 치면 resource를 찾아감. 거기서 templates 폴더를 찾아감

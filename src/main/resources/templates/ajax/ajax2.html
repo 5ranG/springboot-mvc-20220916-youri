@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+    <script>
+        window.onload = () => {
+            load();
+        }
+
+        function load(){
+            request();
+        }
+
+        function request(){
+            $.ajax({
+                async: false,
+                type: "post",
+                url: "/api/v1/dto/post",
+                data: {
+                    "title": "DTO 제목",
+                    "writer": "김준일",
+                    "content": "내용을 입력합니다"                    
+                },
+                dataType: "json",
+                success: (response) => {
+                    console.log(response);
+                    appendData(response);
+                },
+                error: (error) => {
+                    console.log(error);
+                }
+
+            })
+        }
+
+        function appendData(response){
+                    const body = document.querySelector("body");
+                    body.innerHTML = `
+                        <h2>${response.code}</h2>
+                        <h2>${response.msg}</h2>
+                        <h2>${response.data.title}</h2>
+                        <h2>${response.data.writer}</h2>
+                        <h2>${response.data.content}</h2>
+                    `;
+        }
+
+    </script>
+</body>
+</html>
