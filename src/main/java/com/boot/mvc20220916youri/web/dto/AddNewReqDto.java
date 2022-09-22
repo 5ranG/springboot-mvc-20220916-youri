@@ -6,7 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 @Data
-public class AddNewsReqDto {
+public class AddNewReqDto {
     private String title;
     private String broadcastingName;
     private List<MultipartFile> files;

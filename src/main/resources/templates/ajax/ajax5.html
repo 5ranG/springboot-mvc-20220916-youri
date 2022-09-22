@@ -89,7 +89,7 @@
                             <label for="broadcasting-name">첨부이미지</label>
                         </th>
                         <td>
-                            <input type="file" name="files" accept="imgage/jpeg, imgage/png, imag/jpg, image/gif" multiple>
+                            <input type="file" name="files" accept="image/jpeg, image/png, image/jpg, image/gif" multiple>
                             <!-- multiple이 있으면 여러개가 들어간다. -->
                         </td>
                     </tr>
@@ -101,19 +101,20 @@
                             <textarea id="content" name="content"></textarea>
                         </td>
                     </tr>
+                </tbody>
+                <tfoot>
                     <tr>
                         <th colspan="2">
                             <button type="button" class="write-button">작성하기</button>
                             <!-- 타입 지정이 안 될 경우 submit으로 요청이 가서 주의해야함 -->
                         </td>
                     </tr>
-                </tbody>
+                </tfoot>
             </table>
         </form>
         <div class="preview">
             
         </div>
-        <img class="file-preview">
     </div>
     <script>
         const writeButton = document.querySelector(".write-button");
@@ -154,8 +155,7 @@
                     for(let i = 0; i < response.data.fileNames.length; i++){
                         preview.innerHTML += `
                             <h3>${response.data.fileNames[i]}</h3>
-                            
-                        `
+                        `;
                     }
                 },
                 error: (error) => {

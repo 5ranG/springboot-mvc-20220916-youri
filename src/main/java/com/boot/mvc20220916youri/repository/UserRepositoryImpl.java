@@ -6,12 +6,14 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository("a")
+@Repository("a") //빈으로 등록하는 어노테이션
+// @Autowired와 연관된 기능
 public class UserRepositoryImpl implements UserRepository {
     private final List<User> userData; //final이 들어간 이유?
 
     public UserRepositoryImpl() {
         userData = new ArrayList<User>();
+        // 사용자 현재 정보
 
         for(int i = 0; i < 5; i++) {
             int index = i + 1;
@@ -24,7 +26,7 @@ public class UserRepositoryImpl implements UserRepository {
                     .user_email("a" + index + "@gmail.com")
                     .build();
 
-            userData.add(user);
+            userData.add(user); // user를 userData에 추가한다.
         }
     }
 
@@ -33,20 +35,20 @@ public class UserRepositoryImpl implements UserRepository {
     public int save(User user) {
         try {
             int maxCode = 0;
-            for(User u : userData){
+            for(User u : userData){ //userData 리스트를 다 돌린다. u가 for문의 i 같은거
                 if(u.getUser_code() > maxCode) {
                     maxCode = u.getUser_code();
+                    // userData속 usercode 마지막번호 찾기
                 }
             }
-            maxCode++;
+            maxCode++; //마지막 번호에서 +1 한다.
 
             user.setUser_code(maxCode);
-
             userData.add(user);
         }catch (Exception e) {
-            return 0;
+            return 0; //문제 없으니 넘겨라!
         }
-        return 1;
+        return 1; // 이거 용도가 뭐지?
     }
 
 
@@ -59,7 +61,6 @@ public class UserRepositoryImpl implements UserRepository {
                 user = userObj;
             }
         }
-
         return user;
     }
 
