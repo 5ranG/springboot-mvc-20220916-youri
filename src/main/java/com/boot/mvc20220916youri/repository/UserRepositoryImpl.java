@@ -8,7 +8,7 @@ import java.util.List;
 
 @Repository("a")
 public class UserRepositoryImpl implements UserRepository {
-    private final List<User> userData;
+    private final List<User> userData; //final이 들어간 이유?
 
     public UserRepositoryImpl() {
         userData = new ArrayList<User>();
@@ -26,7 +26,6 @@ public class UserRepositoryImpl implements UserRepository {
 
             userData.add(user);
         }
-
     }
 
 

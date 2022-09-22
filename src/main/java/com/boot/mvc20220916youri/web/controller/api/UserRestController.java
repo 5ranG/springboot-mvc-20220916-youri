@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@Slf4j
+@Slf4j // 로그를 찍어야하니까?
 @RestController
 @RequestMapping("/api/v1")// 모든 요청 앞에 이게 붙는다.
 public class UserRestController {
@@ -43,6 +43,5 @@ public class UserRestController {
             return ResponseEntity.internalServerError().body("데이터 오류(Server)");
         }
         return ResponseEntity.ok().body("사용자 추가 완료");
-
     }
 }

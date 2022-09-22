@@ -6,11 +6,12 @@
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
-    <form enctype="multipart/form-data">    
-        <input type="text" name="formDataText"> 
+    <form enctype="multipart/form-data">
+        <input type="text" name="formDataText">
         <input type="file" name="file" class="file-upload-input" accept="image/gif, image/png, image/jpeg, image/jpg">
     </form>
     <img class="file-preview">
+
     <script>
         const fileInput = document.querySelector(".file-upload-input");
 
@@ -39,7 +40,7 @@
             formData.append("writer", "김준일");
             formData.append("content", "파일을 포함한 게시글");
 
-            for(let pair of formData.entries()){
+            for(let pair of formData.entries()) {
                 console.log(`key: ${pair[0]}, value: ${pair[1]}`);
             }
 

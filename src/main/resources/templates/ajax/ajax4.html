@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+
+    <script>
+        let post = {
+            title: "json으로 전송하는 제목",
+            writer: "김준일",
+            content: "내용을 전송합니다."
+        }
+
+        window.onload = () =>{
+            load();
+        }
+
+        function load(){
+            request();
+        }
+
+        function request(){
+            $.ajax({
+                async: false,
+                type: "post",
+                url: "/api/v1/json/post",
+                contentType: "application/json", // 데이터를 JSON 보낼떄 필수
+                data: JSON.stringify(post), // 데이터를 JSON 보낼떄 필수. 객체를 문자열 형태로 바꿔준다
+                dataType: "json",
+                success: (response) => {
+                    console.log(response);
+                },
+                error: (error) => {
+                    console.log(error);
+                }
+            })
+        }
+    </script>
+</body>
+</html>
