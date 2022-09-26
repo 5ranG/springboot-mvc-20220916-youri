@@ -30,7 +30,6 @@ public class RequestTestController {
     @PostMapping("/api/v1/dto/post")
     public ResponseEntity<?> addPost(AddPostReqDto addPostReqDto) {
         log.info("{}", addPostReqDto);
-
         return ResponseEntity.ok(new CMRespDto<>(1, "게시글 작성 완료", addPostReqDto));
     }
 

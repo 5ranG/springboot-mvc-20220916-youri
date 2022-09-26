@@ -65,7 +65,6 @@ public class ResponseEntityController {
         dtoList.add(StudentRespDto.builder().studentCode(20220001).build());
         dtoList.add(StudentRespDto.builder().studentCode(20220002).build());
         dtoList.add(StudentRespDto.builder().studentCode(20220003).build());
-        dtoList.add(StudentRespDto.builder().studentCode(20220004).build());
 
         StringBuilder studentCodeList = new StringBuilder();
         for(StudentRespDto studentRespDto : dtoList){
