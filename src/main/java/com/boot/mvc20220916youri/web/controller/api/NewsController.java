@@ -19,16 +19,17 @@ public class NewsController {
     public ResponseEntity<?> addNews(AddNewReqDto addNewReqDto) {
 
         log.info("{}", addNewReqDto);
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("title", addNewReqDto.getTitle());
-        map.put("broadcastingName", addNewReqDto.getBroadcastingName());
-        map.put("content", addNewReqDto.getContent());
 
-        List<String> fileNameList = new ArrayList<String>();
-        addNewReqDto.getFiles().forEach((file) -> {
-            fileNameList.add(file.getOriginalFilename());
-        });
-        map.put("fileNames", fileNameList);
+    Map<String, Object> map = new HashMap<String, Object>();
+    map.put("title", addNewReqDto.getTitle());
+    map.put("broadcastingName", addNewReqDto.getBroadcastingName());
+    map.put("content", addNewReqDto.getContent());
+
+    List<String> fileNameList = new ArrayList<String>();
+    addNewReqDto.getFiles().forEach((file) -> {
+        fileNameList.add(file.getOriginalFilename()); //업로드되는 파일 이름 적어준다.
+    });
+    map.put("fileNames", fileNameList);
 
         return ResponseEntity.ok(new CMRespDto<>(1, "뉴스등록완료", map));
     }

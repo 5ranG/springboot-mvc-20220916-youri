@@ -26,10 +26,13 @@
             const reader = new FileReader(); // 리더 객체 생성
 
             reader.onload = (e) => {  //readAsDataURL 이게 호출될 떄 실행된다.
+                //정확히는 읽기 동작이 성공적으로 완료되었을 때 발생
                 const filePreview = document.querySelector(".file-preview");
-                filePreview.src = e.target.result; // result값은 src 경로
+                filePreview.src = e.target.result; // result값은 src 경로(파일의 내용을 반환)
             }
             reader.readAsDataURL(fileInput.files[0]);
+            // 바이너리 Base64 Encode 문자열로 반환하는 메소드
+            // data:image/jpeg; base64, GDYG….
         }
 
         function getFormData(){
