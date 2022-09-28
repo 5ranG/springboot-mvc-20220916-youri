@@ -25,7 +25,7 @@
         function getPreview(){
             const reader = new FileReader(); // 리더 객체 생성
 
-            reader.onload = (e) => {  //readAsDataURL이게 호출될 떄 실행된다.
+            reader.onload = (e) => {  //readAsDataURL 이게 호출될 떄 실행된다.
                 const filePreview = document.querySelector(".file-preview");
                 filePreview.src = e.target.result; // result값은 src 경로
             }
